@@ -12,7 +12,7 @@ function NavBar() {
     <>
       <header id={'header'}>
         <div id={'contenedor'}>
-          <img src="../img/logoCrane.png" alt="" />
+          <Link to={"/"} > <img src="../img/logoCrane.png" alt="" /> </Link>
           <Link style={{textDecoration: 'none', color: 'black'}} to="/"> 
               <h1>Crane</h1>
           </Link>

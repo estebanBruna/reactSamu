@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import Item from "../Item/Item"
+import './ItemList.css'
 
 const ItemList = ({productos}) => {
   return (
-    <div>
+    <div className="contenedor">
         {productos.map(prod => <Item key={prod.id}{...prod} />)}
     </div>
   )
