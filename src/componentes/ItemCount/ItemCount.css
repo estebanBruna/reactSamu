@@ -1,0 +1,19 @@
+#btnMas, #btnMenos, #agregarCarrito{
+    background-color: #526F4A;
+    color: whitesmoke;
+    margin: 0 15px;
+    border: none;
+
+}
+
+
+.divContador{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#agregarCarrito {
+    margin-top: 25px;
+}
