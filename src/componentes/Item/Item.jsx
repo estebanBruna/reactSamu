@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom"
 import './Item.css'
-const Item = ({ id, nombre, precio, img }) => {
+const Item = ({ id, nombre, precio, img, stock}) => {
   return (
     <div className='divCard'>
 
@@ -9,6 +9,7 @@ const Item = ({ id, nombre, precio, img }) => {
       <h3 className="m-3" id={"colorLetrasCard"}>Nombre: {nombre}</h3>
       <p className="m-3" id={"colorLetrasCard"}>Precio: {precio}</p>
       <p className="m-3" id={"colorLetrasCard"}>ID: {id}</p>
+      <p className="m-3" id={"colorLetrasCard"}> Stock: {stock}</p>
       <Link className="m-3" id={'verDetalles'} to={`/item/${id}`} > Ver Detalles </Link>
 
     </div>

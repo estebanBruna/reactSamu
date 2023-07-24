@@ -1,4 +1,10 @@
 img{
     width: 2.5rem;
-    margin-right: 2rem;
+    margin-right: 0.5rem;
+}
+
+.cantidadTotal{
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
 }

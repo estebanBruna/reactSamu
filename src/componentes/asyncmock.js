@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 const misProductos = [
-    {id:"1", nombre: 'gorra', precio: 2000, stock: 10, img: "../img/beige.PNG", idCat: "2"},
+    {id:"1", nombre: 'gorra', precio: 2000, stock: 10, img: "../img/bordo.PNG", idCat: "2"},
     {id:"2", nombre: 'gorra', precio: 2000, stock: 8, img: "../img/beige.PNG", idCat: "2"},
     {id:"3", nombre: 'piluso', precio: 1500, stock: 6, img: "../img/piluso.PNG", idCat: "3"},
-    {id:"4", nombre: 'piluso', precio: 1500, stock: 12, img: "../img/piluso.PNG", idCat: "3"},
+    {id:"4", nombre: 'piluso', precio: 1500, stock: 12, img: "../img/pilusob.PNG", idCat: "3"},
 ]
 
 

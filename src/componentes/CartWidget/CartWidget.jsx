@@ -11,10 +11,10 @@ export const CartWidget = () => {
 
   return (
     <div>
-      <Link to="/cart">
+      <Link style={{textDecoration: "none"}} to="/cart">
         <img src={imgCarrito} alt="carrito-de-compras" />
         {
-          cantidadTotal > 0 && <strong> {cantidadTotal} </strong>
+          cantidadTotal > 0 && <strong className='cantidadTotal'> {cantidadTotal} </strong>
         }
       
       </Link>
