@@ -1,6 +1,5 @@
 import './ItemListContainer.css';
 import { useState, useEffect } from 'react';
-//import { getProductos, getProductosPorCategoria } from '../asyncmock';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { db } from "../../services/config";
@@ -30,14 +29,6 @@ const ItemListContainer = (props) => {
       .catch(error => console.log(error))
 
   }, [idCategoria])
-
-  // useEffect( () => {
-  //   const funcion = idCategoria ? getProductosPorCategoria : getProductos;
-
-  //   funcion(idCategoria)
-  //     .then(res => setProductos(res))
-  // }, [ idCategoria])
-
 
 
   return (

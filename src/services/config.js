@@ -5,7 +5,7 @@ import {getFirestore} from "firebase/firestore";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAClupjtAEiJiCGaF0kFZ_cKR80OYy_mBk",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "coderhouse-b8768.firebaseapp.com",
   projectId: "coderhouse-b8768",
   storageBucket: "coderhouse-b8768.appspot.com",

@@ -1,7 +1,8 @@
+
 import { useState, useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 import { db } from "../../services/config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore";
 
 
 
@@ -27,7 +28,7 @@ const Checkout = () => {
             return;
         }
 
-        //Validamos que los campos del email coincidan
+        //Validacion que los campos del email coincidan
         if (email !== emailConfirmacion) {
             setError("Los campos del email no coinciden");
             return
@@ -49,17 +50,36 @@ const Checkout = () => {
 
         };
 
-        //Guardo la orden en la base de datos
+        
+        Promise.all(
+            orden.items.map(async (productoOrden) => {
+                const productoRef = doc(db, "inventario", productoOrden.id);
+                const productoDoc = await getDoc(productoRef);
+                const stockActual = productoDoc.data().stock;
+                await updateDoc(productoRef, {
+                    stock: stockActual - productoOrden.cantidad,
+                })
+                //Modificacion del stock y subo la informacion actualizada
+            })
+        )
+            .then( () => {
+                //Guardo la orden en la base de datos
+                addDoc(collection(db, "ordenes"), orden)
+                    .then((docRef) => {
+                        setOrdenId(docRef.id);
+                        vaciarCarrito();
+                    })
+                    .catch((error) => {
+                        console.log("Error al crear la orden", error);
+                        setError("Error al crear la orden, por favor vuelva a intentarlo");
+                    })
+            })
+            .catch((error) => {
+                console.log("No se puede actualizar el stock", error);
+                setError("No se puede actualizar el stock, intente mas tarde");
+            })
 
-        addDoc(collection(db, "ordenes"), orden)
-            .then(docRef => {
-                setOrdenId(docRef.id);
-                vaciarCarrito();
-            })
-            .catch(error => {
-                console.log("Error al crear la orden", error);
-                setError("Se produjo un error al crear la orden! Intente de nuevo");
-            })
+        
 
     }
 
@@ -76,8 +96,10 @@ const Checkout = () => {
                             <p> {producto.item.nombre} x {producto.cantidad} </p>
                             <p> {producto.item.precio} </p>
                             <hr />
+                            <p>Cantidad Total: {cantidadTotal} </p>
                         </div>
                     ))
+                
                 }
                 <hr />
 
