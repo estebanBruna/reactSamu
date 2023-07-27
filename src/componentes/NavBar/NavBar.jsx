@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import './NavBar.css'
-import { CartWidget } from '../CartWidget/CArtWidget'
+import { CartWidget } from '../CartWidget/CartWidget'
 import { Link, NavLink } from 'react-router-dom';
 
 import Container from 'react-bootstrap/Container';
