@@ -7,6 +7,7 @@ import "./Checkout.css"
 
 
 
+
 const Checkout = () => {
 
     const [nombre, setNombre] = useState("");
@@ -151,12 +152,16 @@ const Checkout = () => {
                     error && <p style={{ color: "red" }}> {error} </p>
                 }
 
-                <button className="btnFinalizarCompra" type="submit"> Finalizar Compra</button>
+                <button className="btnFinalizarCompra" type="submit">Finalizar Compra</button>
             </form>
 
             {
                 ordenId && (
-                    <strong > Gracias por tu compra! Tu numero de orden es {ordenId}</strong>
+                    <div className="graciasPorTuCompra">
+                        <strong>Gracias por tu compra!</strong>
+                        <h3>Tu numero de orden es {ordenId}</h3>
+                    </div>
+                    
                 )
             }
         </div>
