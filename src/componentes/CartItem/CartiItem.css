@@ -1,0 +1,15 @@
+.contenedor {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.btnEliminar {
+    color: whitesmoke;
+    font-size: 14px;
+    padding: 0.7rem;
+    background-color: #9FB798;
+    border-radius: 6%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
+}

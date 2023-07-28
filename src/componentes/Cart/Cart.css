@@ -1,0 +1,49 @@
+.divNoHayProductos {
+    margin: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkVerProductos {
+    text-decoration: none;
+    margin-top: 1rem;
+    color: whitesmoke;
+    padding: 1rem;
+    background-color: #9FB798;
+    border-radius: 6%;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+}
+
+.btnVaciarCarrito {
+    color: whitesmoke;
+    font-size: 14px;
+    padding: 0.7rem;
+    background-color: #9FB798;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
+}
+
+.finalizarCompra{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 14px;
+    padding: 0.8rem;
+    background-color: #9FB798;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: none;
+}
+
+.contenedorCantidadTotal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    justify-content: space-around;
+    align-items: end;
+}
+

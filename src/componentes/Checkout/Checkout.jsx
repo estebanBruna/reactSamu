@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 import { db } from "../../services/config";
 import { collection, addDoc, updateDoc, doc, getDoc } from "firebase/firestore";
+import "./Checkout.css"
 
 
 
@@ -50,7 +51,7 @@ const Checkout = () => {
 
         };
 
-        
+
         Promise.all(
             orden.items.map(async (productoOrden) => {
                 const productoRef = doc(db, "inventario", productoOrden.id);
@@ -62,7 +63,7 @@ const Checkout = () => {
                 //Modificacion del stock y subo la informacion actualizada
             })
         )
-            .then( () => {
+            .then(() => {
                 //Guardo la orden en la base de datos
                 addDoc(collection(db, "ordenes"), orden)
                     .then((docRef) => {
@@ -79,29 +80,42 @@ const Checkout = () => {
                 setError("No se puede actualizar el stock, intente mas tarde");
             })
 
-        
+
 
     }
 
 
 
     return (
-        <div>
-            <h2> Checkout </h2>
-            <form onSubmit={manejadorFormulario} >
-                {
-                    carrito.map(producto => (
-                        <div key={producto.item.id} >
+        <div className="divPadre">
+            <h2 className="tituloCheckOut"> Checkout </h2>
+            {
+                carrito.map(producto => (
+                    <div className="productoCheckout" key={producto.item.id} >
+                        <div className="contenedorDetalles">
                             <img src={producto.item.img} alt={producto.item.nombre} />
                             <p> {producto.item.nombre} x {producto.cantidad} </p>
-                            <p> {producto.item.precio} </p>
-                            <hr />
-                            <p>Cantidad Total: {cantidadTotal} </p>
+                            <p> precio: {producto.item.precio} </p>
                         </div>
-                    ))
-                
-                }
-                <hr />
+                    </div>
+                ))
+
+            }
+
+            <hr style={{width: "97%", margin: "0 auto"}}/>
+            
+            {   <div className="precioTotal">
+                    <p>Cantidad total de productos: {cantidadTotal} </p>
+                    <p> Total: ${total}</p>
+                </div>
+            }
+
+
+            <form className="formulario" onSubmit={manejadorFormulario} >
+
+
+
+
 
                 <div className="formGroup">
                     <label htmlFor="nombre"> Nombre </label>
@@ -111,7 +125,7 @@ const Checkout = () => {
 
                 <div className="formGroup">
                     <label htmlFor="apellido"> Apellido </label>
-                    <input  id="apellido" type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} />
+                    <input id="apellido" type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} />
 
                 </div>
 
@@ -137,12 +151,12 @@ const Checkout = () => {
                     error && <p style={{ color: "red" }}> {error} </p>
                 }
 
-                <button type="submit"> Finalizar Compra</button>
+                <button className="btnFinalizarCompra" type="submit"> Finalizar Compra</button>
             </form>
 
             {
                 ordenId && (
-                    <strong> Gracias por tu compra! Tu numero de orden es {ordenId}</strong>
+                    <strong > Gracias por tu compra! Tu numero de orden es {ordenId}</strong>
                 )
             }
         </div>

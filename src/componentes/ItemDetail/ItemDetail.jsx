@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 
 
-const ItemDetail = ({id, nombre, precio, img, stock}) => {
+const ItemDetail = ({id, nombre, precio, img, stock, descripcion}) => {
   
 
   const [agregarCantidad, setAgregarCantidad] = useState(0);
@@ -18,15 +18,16 @@ const ItemDetail = ({id, nombre, precio, img, stock}) => {
   const manejadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
 
-    const item = {id, nombre, precio};
+    const item = {id, nombre, precio, descripcion, stock, img};
     agregarProducto(item, cantidad);
   } 
   return (
     <div style={{ width: '20rem', border: '2px solid #526F4A', borderRadius: '5%', margin: '5rem', padding: '35px', backgroundColor: 'whitesmoke', color: "#526F4A"}}>
         <h2>Nombre: {nombre} </h2>
         <h3> Precio: {precio} </h3>
-        <h3> ID: {id} </h3>
-        <p> Descripcion del producto </p>
+        <h5> ID: {id} </h5>
+        <h5> Stock: {stock} </h5>
+        <p> {descripcion} </p>
         <img src={img} alt={nombre} style={{ width: '100%', borderRadius: '5%', marginBottom: "30px" }}/>
         {
           //Empleamos la logica del montaje y desmontaje de componentes.

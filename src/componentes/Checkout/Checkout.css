@@ -1,0 +1,56 @@
+
+input {
+    width: 100%;
+}
+
+.formulario {
+    width: 95%;
+    margin: 2rem auto;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: #526F4A;
+    background-color: #dedede76;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+}
+
+.btnFinalizarCompra {
+    background-color: #526F4A;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+.tituloCheckOut {
+    text-align: center;
+    margin: 2rem;
+}
+
+.productoCheckout {
+    margin: 1rem;
+}
+
+.contenedorDetalles {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+.contenedorDetalles img {
+    padding: 1rem;
+    width: 6rem;
+    height: 6rem;
+}
+
+.precioTotal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin: 1.4rem;
+}
